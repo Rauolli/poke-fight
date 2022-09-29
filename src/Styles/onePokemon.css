@@ -9,20 +9,20 @@
   margin: 10px 0 10px 0;
 }
 
-.ingredients {
+.base {
   margin-top: 20px;
 }
 
-ol {
-  padding-left: 20px;
-}
-
-ul {
-  padding-left: 20px;
+ul.data {
+  list-style: none;
+  background-color: rgb(3, 154, 224);
+  padding: 10px;
+  border-radius: 15%;
+  color: antiquewhite;
 }
 
 li {
-  margin-bottom: 3px;
+  margin-top: 3px;
 }
 
 @media (min-width: 720px) {

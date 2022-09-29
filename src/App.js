@@ -6,7 +6,7 @@ import OnePokemon from "./Components/OnePokemon";
 
 export default function App() {
   const [posts, setPosts] = useState([]);
-  const API = "https://cookbook-api.onrender.com";
+  const API = "http://localhost:8080/pokemon";
   useEffect(() => {
     fetch(API)
       .then((res) => res.json())
@@ -18,15 +18,15 @@ export default function App() {
     <>
       <Navbar />
 
-      {/* <Routes>
-        <Route path="/" element={<Pokedex posts={posts} />} />
-        <Route path="/pokemon/:id" element={<Pokedex posts={posts} />} />
+      <Routes>
+        <Route path="/" element={<Pokedex posts={posts.slice(0, 151)} />} />
+        <Route path="/pokemon/:id" element={<OnePokemon posts={posts} />} />
         <Route
           path="/Pokemon/:id/:info"
           element={<OnePokemon posts={posts} />}
         />
         <Route path="*" element={<div>404 Seite nicht gefunden</div>} />
-      </Routes> */}
+      </Routes>
     </>
   );
 }

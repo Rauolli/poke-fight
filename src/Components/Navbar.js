@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     <nav className="navigation">
       <a href="/" className="brand-name">
-        Poke-Fight
+        Poke Fight
       </a>
       <button
         className="hamburger"
