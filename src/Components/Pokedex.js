@@ -10,13 +10,7 @@ export default function Pokedex({ posts }) {
           // destructure item
           const { id, name, type } = item;
 
-          return (
-            <>
-              <div className="recipe-cards">
-                <AllPokemon key={id} id={id} name={name} type={type} />
-              </div>
-            </>
-          );
+          return <AllPokemon key={id} id={id} name={name} type={type} />;
         })}
     </main>
   );

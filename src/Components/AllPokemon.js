@@ -1,13 +1,10 @@
 import { Link } from "react-router-dom";
+import PokemonType from "./PokemonType";
 import "../Styles/globalStyle.css";
 
 export default function AllPokemon(props) {
   const { id, name, type } = props;
-  const color = () => {
-    if ({ type } === "grass".toUpperCase()) {
-      return "green";
-    }
-  };
+  const myType = props.type;
 
   return (
     <>
@@ -21,7 +18,15 @@ export default function AllPokemon(props) {
           ></div>
           <article className="text-container">
             <h2>{name.english}</h2>
-            <span className={color()}>Type {`${type}`}</span>
+            <div className="info">
+              {myType.length &&
+                myType.map((element) => {
+                  return (
+                    <span className={PokemonType(element)}>{element}</span>
+                  );
+                })}
+            </div>
+
             <span>{id}</span>
           </article>
         </div>
