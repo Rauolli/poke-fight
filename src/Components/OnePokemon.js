@@ -9,15 +9,26 @@ export default function OnePokemon({ posts }) {
   const thisPost = posts.length && posts.find((post) => post.id == id);
   const myType = thisPost && thisPost.type;
   const base = thisPost && thisPost.base;
-  console.log(base);
+  console.log(posts);
   return (
-    <main>
-      <div>
-        <button onClick={() => navigate(`/Pokemon/${numId - 1}`)}>
-          Previous Pokemon
+    <main className="one-Pokemon">
+      <div className="pagination">
+        <button
+          className="previous"
+          disabled={numId < 2}
+          onClick={() => navigate(`/Pokemon/${numId - 1}`)}
+        >
+          <span>Nr. {thisPost.id - 1}</span>
         </button>
-        <button onClick={() => navigate(`/Pokemon/${numId + 1}`)}>
-          Next Pokemon
+        <button className="home" onClick={() => navigate(`/`)}>
+          <span>Pokedex</span>
+        </button>
+        <button
+          className="next"
+          disabled={numId > 150}
+          onClick={() => navigate(`/Pokemon/${numId + 1}`)}
+        >
+          <span>Nr. {thisPost.id + 1}</span>
         </button>
       </div>
       <div className="pokemon">

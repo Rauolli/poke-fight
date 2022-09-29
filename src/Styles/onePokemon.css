@@ -1,3 +1,28 @@
+.one-Pokemon {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.pagination {
+  display: inline-flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.previous {
+  width: 50%;
+}
+
+.home {
+  border-radius: 50%;
+  padding: 30px;
+}
+
+.next {
+  width: 50%;
+}
+
 .card {
   padding: 10px;
 }

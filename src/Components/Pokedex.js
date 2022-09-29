@@ -9,7 +9,6 @@ export default function Pokedex({ posts }) {
         posts.map((item) => {
           // destructure item
           const { id, name, type } = item;
-
           return <AllPokemon key={id} id={id} name={name} type={type} />;
         })}
     </main>

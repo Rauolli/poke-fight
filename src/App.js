@@ -20,10 +20,13 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<Pokedex posts={posts.slice(0, 151)} />} />
-        <Route path="/pokemon/:id" element={<OnePokemon posts={posts} />} />
+        <Route
+          path="/pokemon/:id"
+          element={<OnePokemon posts={posts.slice(0, 151)} />}
+        />
         <Route
           path="/Pokemon/:id/:info"
-          element={<OnePokemon posts={posts} />}
+          element={<OnePokemon posts={posts.slice(0, 151)} />}
         />
         <Route path="*" element={<div>404 Seite nicht gefunden</div>} />
       </Routes>

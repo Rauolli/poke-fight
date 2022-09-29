@@ -27,7 +27,7 @@ export default function AllPokemon(props) {
                 })}
             </div>
 
-            <span>{id}</span>
+            <span>NR. {id}</span>
           </article>
         </div>
       </Link>

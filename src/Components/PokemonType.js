@@ -1,3 +1,5 @@
+import "../Styles/pokemonType.css";
+
 export default function PokemonType(element) {
   let pokemonType = "";
   switch (element) {
