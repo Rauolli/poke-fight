@@ -11,7 +11,7 @@ export default function OnePokemon({ posts }) {
   const base = thisPost && thisPost.base;
   console.log(posts);
   return (
-    <main className="one-Pokemon">
+    <section>
       <div className="pagination">
         <button
           className="previous"
@@ -38,7 +38,7 @@ export default function OnePokemon({ posts }) {
             <div
               className="thumb"
               style={{
-                backgroundImage: `url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png)`,
+                backgroundImage: `url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg)`,
               }}
             ></div>
             <article className="text-container">
@@ -55,7 +55,7 @@ export default function OnePokemon({ posts }) {
               </div>
               <div className="bottom-box">
                 <div className="base">
-                  <h3>Daten</h3>
+                  <h3>Stats</h3>
                   <ul className="data">
                     <li>Attack: {base.Attack}</li>
                     <li>Defense: {base.Defense}</li>
@@ -74,6 +74,6 @@ export default function OnePokemon({ posts }) {
           "not found"
         )}
       </div>
-    </main>
+    </section>
   );
 }

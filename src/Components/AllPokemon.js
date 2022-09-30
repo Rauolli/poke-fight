@@ -13,7 +13,7 @@ export default function AllPokemon(props) {
           <div
             className="thumb"
             style={{
-              backgroundImage: `url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png)`,
+              backgroundImage: `url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg)`,
             }}
           ></div>
           <article className="text-container">
