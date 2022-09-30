@@ -45,6 +45,13 @@ export default function Navbar() {
           >
             <li>Pokedex</li>
           </NavLink>
+          <NavLink
+            className="nav-link"
+            to="/battle"
+            onClick={() => setIsNavExpanded(false)}
+          >
+            <li>Battle</li>
+          </NavLink>
         </ul>
       </div>
     </nav>
