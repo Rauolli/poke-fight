@@ -3,6 +3,7 @@ import PlayerPokemon from "./PlayerPokemon";
 import EnemyPokemon from "./EnemyPokemon";
 
 export default function Battle({ posts }) {
+  const {id, name} = posts;
   //   const getRandomIntPlayer = () => {
   //     return Math.floor(Math.random() * 151) + 1;
   //   };

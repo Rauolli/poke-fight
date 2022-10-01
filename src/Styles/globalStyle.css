@@ -8,6 +8,7 @@
 main {
   background-image: url("https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png");
   border-radius: 10px;
+  background-color: rgb(4, 77, 59);
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -42,6 +43,7 @@ main {
   border-radius: 10px;
   flex-wrap: wrap;
   border: 2px solid black;
+  box-shadow: 5px 8px 18px rgba(3, 23, 10, 0.9);
 }
 
 .pokemon {
@@ -72,8 +74,9 @@ span {
 }
 
 .card-container:hover {
-  top: -2px;
-  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  /* top: -2px; */
+  transform: scale(98%);
+  box-shadow: 0px 4px 7px rgba(3, 23, 10, 0.9);
 }
 
 a {
