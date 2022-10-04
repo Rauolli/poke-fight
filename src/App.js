@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Navbar from "./Components/Navbar";
 import Pokedex from "./Components/Pokedex";
 import OnePokemon from "./Components/OnePokemon";
+import Battle from "./Components/Battle";
 
 export default function App() {
   const [posts, setPosts] = useState([]);
@@ -20,6 +21,10 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<Pokedex posts={posts.slice(0, 151)} />} />
+        <Route
+          path="/battle"
+          element={<Battle posts={posts.slice(0, 151)} />}
+        />
         <Route
           path="/pokemon/:id"
           element={<OnePokemon posts={posts.slice(0, 151)} />}
