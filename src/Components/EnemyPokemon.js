@@ -1,13 +1,9 @@
 import PokemonType from "./PokemonType";
 
-export default function EnemyPokemon({ posts }, { props }) {
-  const { id, name, type } = props;
-  const getRandomInt = () => {
-    return Math.floor(Math.random() * 151);
-  };
-  const enemyPokemon = posts[getRandomInt()];
-  console.log(enemyPokemon);
-  const playerType = enemyPokemon && enemyPokemon.type;
+export default function EnemyPokemon({ posts }) {
+  const randomId = Math.floor(Math.random() * posts.length);
+  const ePokemon = posts.find((pkm) => pkm.id === randomId);
+  const enemyType = ePokemon && ePokemon.type;
   return (
     <section>
       <div className="pokemon">
@@ -15,16 +11,16 @@ export default function EnemyPokemon({ posts }, { props }) {
           <div
             className="thumb"
             style={{
-              backgroundImage: `url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${enemyPokemon.id}.svg)`,
+              backgroundImage: `url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${ePokemon.id}.svg)`,
             }}
           ></div>
           <article className="text-container">
             <div className="top-box">
-              <h2>{posts.name}</h2>
+              <h2>{ePokemon.name.english}</h2>
             </div>
             <div className="info">
-              {playerType.length &&
-                playerType.map((element) => {
+              {enemyType.length &&
+                enemyType.map((element) => {
                   return (
                     <span className={PokemonType(element)}>{element}</span>
                   );

@@ -1,11 +1,9 @@
 import PokemonType from "./PokemonType";
 
 export default function PlayerPokemon({ posts }) {
-  const getRandomInt = () => {
-    return Math.floor(Math.random() * 151);
-  };
-  const playerPokemon = posts[getRandomInt()];
-  const playerType = playerPokemon && playerPokemon.type;
+  const randomId = Math.floor(Math.random() * posts.length);
+  const pPokemon = posts.find((pkm) => pkm.id === randomId);
+  const playerType = pPokemon && pPokemon.type;
   return (
     <section>
       <div className="pokemon">
@@ -13,12 +11,12 @@ export default function PlayerPokemon({ posts }) {
           <div
             className="thumb"
             style={{
-              backgroundImage: `url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${playerPokemon.id}.svg)`,
+              backgroundImage: `url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pPokemon.id}.svg)`,
             }}
           ></div>
           <article className="text-container">
             <div className="top-box">
-              <h2>{playerPokemon.name.english}</h2>
+              <h2>{pPokemon.name.english}</h2>
             </div>
             <div className="info">
               {playerType.length &&
