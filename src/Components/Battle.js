@@ -3,26 +3,33 @@ import PlayerPokemon from "./PlayerPokemon";
 import EnemyPokemon from "./EnemyPokemon";
 
 export default function Battle({ posts }) {
-  const playerPokemon = posts;
-  const enemyPokemon = posts;
   const [start, setStart] = useState(0);
   const [button, setButton] = useState(false);
-  const player = PlayerPokemon;
-  const enemy = EnemyPokemon;
+  const [pPokemon, setPPokemon] = useState();
+  const [ePokemon, setEPokemon] = useState();
 
   useEffect(() => {
+    const randomIdPlayer = Math.floor(Math.random() * posts.length);
+    setPPokemon(posts.find((pkm) => pkm.id === randomIdPlayer));
+    const randomIdEnemy = Math.floor(Math.random() * posts.length);
+    setEPokemon(posts.find((pkm) => pkm.id === randomIdEnemy));
+  }, [posts]);
+
+  useEffect(() => {
+    if (!ePokemon || !pPokemon) {
+      return;
+    }
     switch (start) {
-      case 0:
-        stopGame();
-        break;
       case 1:
+        stopGame();
         if (button) {
-          enemy.hp = enemy.hp - player.attack;
+          ePokemon.base.HP = ePokemon.base.HP - 10;
           setStart(2);
         }
         break;
       case 2:
-        player.hp = player.hp - enemy.attack;
+        stopGame();
+        pPokemon.base.HP = pPokemon.base.HP - 10;
         setButton(false);
         setStart(1);
         break;
@@ -30,7 +37,7 @@ export default function Battle({ posts }) {
         setStart(0);
         break;
     }
-  });
+  }, [start, button]);
 
   const handleClickStart = () => {
     speed();
@@ -38,21 +45,23 @@ export default function Battle({ posts }) {
 
   const handleClickAttack = () => {
     setButton(true);
-    // setStart(1);
+    setStart(1);
   };
 
   const stopGame = () => {
-    if (player.hp <= 0) {
-      console.log("Loser!");
+    if (pPokemon.base.HP <= 0) {
+      alert("Loser!");
+      setStart(0);
+    } else if (ePokemon.base.HP <= 0) {
+      alert("Winner");
       setStart(0);
     } else {
-      console.log("Winner");
-      setStart(0);
+      return;
     }
   };
 
   const speed = () => {
-    if (player.speed >= enemy.speed) {
+    if (pPokemon.base.Speed >= ePokemon.base.Speed) {
       setStart(1);
     } else {
       setStart(2);
@@ -60,8 +69,10 @@ export default function Battle({ posts }) {
   };
   return (
     <>
-      <EnemyPokemon posts={enemyPokemon} />
-      <PlayerPokemon posts={playerPokemon} />
+      <PlayerPokemon pPokemon={pPokemon} />
+      <EnemyPokemon ePokemon={ePokemon} />
+      <button onClick={handleClickStart}>Start Game</button>
+      <button onClick={handleClickAttack}>Tackle</button>
     </>
   );
 }
