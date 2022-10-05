@@ -5,7 +5,6 @@ export default function EnemyPokemon({ ePokemon }) {
   return (
     <>
       {ePokemon && (
-        <section>
           <div className="pokemon">
             <div className="card">
               <div
@@ -45,7 +44,6 @@ export default function EnemyPokemon({ ePokemon }) {
               </article>
             </div>
           </div>
-        </section>
       )}
     </>
   );
