@@ -11,7 +11,7 @@ export default function OnePokemon({ posts }) {
   const base = thisPost && thisPost.base;
   console.log(posts);
   return (
-    <section>
+    <main>
       <div className="pagination">
         <button
           className="previous"
@@ -74,6 +74,6 @@ export default function OnePokemon({ posts }) {
           "not found"
         )}
       </div>
-    </section>
+    </main>
   );
 }
