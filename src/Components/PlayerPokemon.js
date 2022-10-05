@@ -5,7 +5,6 @@ export default function PlayerPokemon({ pPokemon }) {
   return (
     <>
       {pPokemon && (
-        <section>
           <div className="pokemon">
             <div className="card">
               <div
@@ -45,7 +44,6 @@ export default function PlayerPokemon({ pPokemon }) {
               </article>
             </div>
           </div>
-        </section>
       )}
     </>
   );

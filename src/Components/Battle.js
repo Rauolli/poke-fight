@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import PlayerPokemon from "./PlayerPokemon";
 import EnemyPokemon from "./EnemyPokemon";
+import "../Styles/battleStyle.css";
 
 export default function Battle({ posts }) {
   const [start, setStart] = useState(0);
@@ -68,11 +69,15 @@ export default function Battle({ posts }) {
     }
   };
   return (
-    <>
-      <PlayerPokemon pPokemon={pPokemon} />
-      <EnemyPokemon ePokemon={ePokemon} />
-      <button onClick={handleClickStart}>Start Game</button>
-      <button onClick={handleClickAttack}>Tackle</button>
-    </>
+    <main>
+      <div className="battle-cards">
+        <PlayerPokemon pPokemon={pPokemon} />
+        <EnemyPokemon ePokemon={ePokemon} />
+      </div>
+      <div className="battle-buttons">
+        <button onClick={handleClickStart}>Start Game</button>
+        <button onClick={handleClickAttack}>Tackle</button>
+      </div>
+    </main>
   );
 }

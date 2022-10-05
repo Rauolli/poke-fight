@@ -12,23 +12,27 @@ section {
   width: 100%;
 }
 
-.previous {
-  width: 20%;
-}
-
-.home {
-  width: 20%;
-}
-
+.previous,
+.home,
 .next {
   width: 20%;
 }
 
+.previous:hover,
+.home:hover,
+.next:hover{
+  background-color: #444242;
+  color: white;
+  border-radius: 3px; 
+}
+
 .card {
-  width: 300px;
-  height: 100%;
+  background-color: rgba(255, 255, 255, 0.85);
+  width: calc(100vh / 3.2);
+  height: 95%;
   border: 2px solid black;
-  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 5px 8px 18px rgba(3, 23, 10, 0.9); 
 }
 
 .thumb {
@@ -42,16 +46,26 @@ section {
   margin: 10px 0 10px 0;
 }
 
+.bottom-box{
+  width: 100%;
+}
+
+
 .base {
   margin-top: 20px;
 }
 
-ul.data {
+.base>h3{
+  text-align: center;
+}
+
+.data {
   list-style: none;
   background-color: rgb(3, 154, 224);
   padding: 10px;
-  border-radius: 15%;
+  border-radius: 8px;
   color: antiquewhite;
+  box-shadow: 2px 3px 6px -1px rgba(1, 29, 42, 0.45);
 }
 
 li {
