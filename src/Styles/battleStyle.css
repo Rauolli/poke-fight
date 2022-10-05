@@ -1,18 +1,24 @@
-.battle-cards{
-    display: flex;
-    height: 50%;
-    gap: 2em;
+.battle {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.battle-buttons{
-    margin-top: 2em;
-    display: flex;
-    height: 100%;
-    width: 200px;
-    justify-content: flex-end;
-    gap: 2em
+.battle-cards {
+  display: flex;
+  align-items: center;
+  gap: 2em;
 }
 
-.battle-buttons>button{
-    padding: 0.5em 0.5em;
+.battle-buttons {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 200px;
+  gap: 2em;
+}
+
+.battle-buttons > button {
+  padding: 0.5em 0.5em;
 }

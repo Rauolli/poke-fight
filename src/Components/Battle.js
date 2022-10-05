@@ -69,14 +69,24 @@ export default function Battle({ posts }) {
     }
   };
   return (
-    <main>
-      <div className="battle-cards">
-        <PlayerPokemon pPokemon={playerPokemon} />
-        <EnemyPokemon ePokemon={enemyPokemon} />
-      </div>
+    <main className="battle">
       <div className="battle-buttons">
         <button onClick={handleClickStart}>Start Game</button>
         <button onClick={handleClickAttack}>Tackle</button>
+      </div>
+      <div className="battle-cards">
+        <PlayerPokemon pPokemon={playerPokemon} />
+        <a
+          href="https://www.freepnglogos.com/pics/vs"
+          title="Image from freepnglogos.com"
+        >
+          <img
+            src="https://www.freepnglogos.com/uploads/vs-png/vs-fire-icon-png-logo-Image-10.png"
+            width="200"
+            alt="vs fire icon png logo"
+          />
+        </a>
+        <EnemyPokemon ePokemon={enemyPokemon} />
       </div>
     </main>
   );
