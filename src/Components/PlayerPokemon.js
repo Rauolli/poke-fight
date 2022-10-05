@@ -1,12 +1,12 @@
 import PokemonType from "./PokemonType";
 
-export default function PlayerPokemon({ pPokemon }) {
+export default function PlayerPokemon({ attack, pPokemon }) {
   const playerType = pPokemon && pPokemon.type;
   return (
     <>
       {pPokemon && (
         <div className="pokemon">
-          <div className="card">
+          <div className={attack?"attack-card":"battle-card"}>
             <div
               className="thumb"
               style={{
