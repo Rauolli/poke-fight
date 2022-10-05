@@ -1,4 +1,4 @@
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import PokemonType from "./PokemonType";
 import "../Styles/onePokemon.css";
 
@@ -9,7 +9,6 @@ export default function OnePokemon({ posts }) {
   const thisPost = posts.length && posts.find((post) => post.id == id);
   const myType = thisPost && thisPost.type;
   const base = thisPost && thisPost.base;
-  console.log(posts);
   return (
     <main>
       <div className="pagination">
@@ -49,7 +48,12 @@ export default function OnePokemon({ posts }) {
                 {myType.length &&
                   myType.map((element) => {
                     return (
-                      <span className={PokemonType(element)}>{element}</span>
+                      <span
+                        key={crypto.randomUUID()}
+                        className={PokemonType(element)}
+                      >
+                        {element}
+                      </span>
                     );
                   })}
               </div>
