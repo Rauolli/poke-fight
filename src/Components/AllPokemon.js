@@ -22,7 +22,12 @@ export default function AllPokemon(props) {
               {myType.length &&
                 myType.map((element) => {
                   return (
-                    <span className={PokemonType(element)}>{element}</span>
+                    <span
+                      key={crypto.randomUUID()}
+                      className={PokemonType(element)}
+                    >
+                      {element}
+                    </span>
                   );
                 })}
             </div>
