@@ -24,7 +24,7 @@
 }
 
 .battle-card{
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(255, 255, 255, 1);
     width: calc(100vh / 3.2);
     height: 95%;
     border: 5px solid orangered;
@@ -40,7 +40,7 @@
     border: 2px solid black;
     border-radius: 10px;
     box-shadow: 5px 8px 18px rgba(3, 23, 10, 0.9);
-    animation: attack 1s 2 both; 
+    animation: attack 0.8s 2 both; 
 }
 
 .battle-card>h2{
@@ -52,6 +52,37 @@
   text-align: center;
   color: rgb(84, 90, 82);
 }
+
+.game-over{
+  position : absolute;
+  display: block;
+  width: 500px;
+  border: 2px solid gray;
+  border-radius: 15px;
+  text-align: justify;
+  padding: 0.5rem 1rem 1rem 3rem;
+  height: 150px;
+  top: 45vh;
+  left: auto;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.not-visible{
+  display: none;
+}
+
+.game-over>button{
+  display: inline-block;
+  position: relative;
+  left: 97%;
+  top: 0%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+
 
     
 @keyframes attack {
