@@ -8,6 +8,7 @@ import Battle from "./Components/Battle";
 export default function App() {
   const [posts, setPosts] = useState([]);
   const API = "http://localhost:8080/pokemon";
+  // const API = "https://poke-fight-backend.onrender.com";
   useEffect(() => {
     fetch(API)
       .then((res) => res.json())
