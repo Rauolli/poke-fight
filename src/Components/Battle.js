@@ -44,6 +44,7 @@ export default function Battle({ posts }) {
         setStart(0);
         break;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [start, button, attackPlayer, attackEnemy]);
 
   const handleClickStart = () => {
@@ -80,13 +81,15 @@ export default function Battle({ posts }) {
   };
 
   return (
-    <main className="battle">   
+    <main className="battle">
       <div className="battle-buttons">
-        <button disabled={start !== 0} onClick={handleClickStart}>Start Game</button>
+        <button disabled={start !== 0} onClick={handleClickStart}>
+          Start Game
+        </button>
         <button onClick={handleClickAttack}>Tackle</button>
       </div>
       <div className="battle-cards">
-      <PlayerPokemon attack={attackPlayer} pPokemon={playerPokemon} />
+        <PlayerPokemon attack={attackPlayer} pPokemon={playerPokemon} />
         <a
           href="https://www.freepnglogos.com/pics/vs"
           title="Image from freepnglogos.com"
