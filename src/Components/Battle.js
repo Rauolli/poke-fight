@@ -44,15 +44,15 @@ export default function Battle({ posts }) {
         setStart(0);
         break;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [start, button, attackPlayer, attackEnemy]);
 
   const handleClickStart = () => {
-    if(start !== 0){
-      window.location.reload(false); 
-    }else{
+    if (start !== 0) {
+      window.location.reload(false);
+    } else {
       speed();
     }
-    
   };
 
   const handleClickAttack = () => {
@@ -85,13 +85,15 @@ export default function Battle({ posts }) {
   };
 
   return (
-    <main className="battle">   
+    <main className="battle">
       <div className="battle-buttons">
-        <button  onClick={handleClickStart}>{start !== 0?"New Game":"Start Game"}</button>
+        <button onClick={handleClickStart}>
+          {start !== 0 ? "New Game" : "Start Game"}
+        </button>
         <button onClick={handleClickAttack}>Tackle</button>
       </div>
       <div className="battle-cards">
-      <PlayerPokemon attack={attackPlayer} pPokemon={playerPokemon} />
+        <PlayerPokemon attack={attackPlayer} pPokemon={playerPokemon} />
         <a
           href="https://www.freepnglogos.com/pics/vs"
           title="Image from freepnglogos.com"
