@@ -7,6 +7,7 @@ export default function EnemyPokemon({ attack, ePokemon }) {
       {ePokemon && (
         <div className="pokemon">
           <div className={attack?"attack-card":"battle-card"}>
+            <h2>Enemy</h2>
             <div
               className="thumb"
               style={{

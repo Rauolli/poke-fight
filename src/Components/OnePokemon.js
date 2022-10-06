@@ -6,7 +6,7 @@ export default function OnePokemon({ posts }) {
   let { id } = useParams();
   const navigate = useNavigate();
   const numId = parseInt(id);
-  const thisPost = posts.length && posts.find((post) => post.id === id);
+  const thisPost = posts.length && posts.find((post) => post.id === numId);
   const myType = thisPost && thisPost.type;
   const base = thisPost && thisPost.base;
   return (

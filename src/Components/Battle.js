@@ -47,7 +47,12 @@ export default function Battle({ posts }) {
   }, [start, button, attackPlayer, attackEnemy]);
 
   const handleClickStart = () => {
-    speed();
+    if(start !== 0){
+      window.location.reload(false); 
+    }else{
+      speed();
+    }
+    
   };
 
   const handleClickAttack = () => {
@@ -82,7 +87,7 @@ export default function Battle({ posts }) {
   return (
     <main className="battle">   
       <div className="battle-buttons">
-        <button disabled={start !== 0} onClick={handleClickStart}>Start Game</button>
+        <button  onClick={handleClickStart}>{start !== 0?"New Game":"Start Game"}</button>
         <button onClick={handleClickAttack}>Tackle</button>
       </div>
       <div className="battle-cards">
