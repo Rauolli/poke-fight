@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   height: 60px;
-  padding: 0.5rem 0rem;
+  padding: 0.5rem 0;
   background-color: #444242;
   color: black;
   box-shadow: 0 2px 10px rgb(0 0 0 / 10%), 0 10px 15px rgb(0 0 0 / 20%);
@@ -19,9 +19,9 @@
   margin-left: 1rem;
 }
 
-a {
+/* a {
   color: white;
-}
+} */
 
 .navigation-menu {
   margin-left: auto;
@@ -33,23 +33,20 @@ a {
   padding: 0;
 }
 
-.navigation-menu li {
+.navigation-menu li:not(.expanded) {
   list-style-type: none;
   margin: 0 1rem;
   border-radius: 50px;
   padding: 10px;
-  background-image: linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0.6),
-    rgba(255, 255, 255, 0.6)
-  );
+  background-image: linear-gradient(45deg,
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.6));
   mix-blend-mode: hard-light;
 }
 
-.NavLink {
-  text-decoration: none;
-  display: block;
-  width: 100%;
+.navigation-menu li:hover {
+  background-color: #97c8eb;
+  color: black;
 }
 
 .hamburger {
@@ -68,14 +65,25 @@ a {
   display: none;
 }
 
+.NavLink {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+}
+
+
 .hamburger:hover {
   background-color: #97c8eb;
 }
 
 .active {
-  color: black;
-  list-style-type: none;
+  text-decoration: underline;
 }
+
+/* .nav-link:hover {
+  background-color: black;
+  color: white;
+} */
 
 @media screen and (max-width: 850px) {
   .hamburger {
@@ -86,32 +94,38 @@ a {
     flex-direction: column;
     position: absolute;
     top: 60px;
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 60px);
+    right: 0;
+    width: max-content;
     background-color: rgb(255, 255, 255);
-    border-top: 1px solid black;
     display: none;
+    border: 1px solid black;
+    border-radius: 0 0 5px 5px;
+
   }
 
   .navigation-menu li {
     text-align: center;
-    margin: 0;
   }
 
-  a {
+  .navigation-menu a {
     color: black;
-    /* width: 100%; */
-    /* padding: 1.5rem 0; */
   }
 
-  .navigation-menu li:hover {
+
+  /* .navigation-menu li:hover {
     background-color: #eee;
-  }
+  } */
 
-  .navigation-menu.expanded ul {
+  .expanded ul {
     display: block;
     z-index: 1;
     transition: all 0.2s ease-out;
+  }
+
+  .expanded .nav-link:hover {
+    display: block;
+    background-color: #97c8eb;
+    border-radius: 0;
+    color: black;
   }
 }
