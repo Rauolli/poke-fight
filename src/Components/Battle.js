@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import PlayerPokemon from "./PlayerPokemon";
-import "../Styles/battleStyle.css";
 import GameOver from "./GameOver";
+import "../Styles/battleStyle.css";
 
 export default function Battle({ posts }) {
   const [started, setStarted] = useState(false);
-  const [rndIds, setRndIds]= useState({
+  const [rndIds, setRndIds] = useState({
     randomIdPlayer: Math.floor(Math.random() * posts.length),
-    randomIdEnemy: Math.floor(Math.random() * posts.length)  
+    randomIdEnemy: Math.floor(Math.random() * posts.length),
   });
   const [attackPlayer, setPlayerAttack] = useState(false);
   const [attackEnemy, setEnemyAttack] = useState(false);
@@ -21,47 +21,53 @@ export default function Battle({ posts }) {
   useEffect(() => {
     setPlayerPokemon(posts.find((pkm) => pkm.id === rndIds.randomIdPlayer));
     setEnemyPokemon(posts.find((pkm) => pkm.id === rndIds.randomIdEnemy));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [posts]);
 
   useEffect(() => {
     if (!enemyPokemon || !playerPokemon) {
       return;
     }
-    if(gameOver){
+    if (gameOver) {
       return;
     }
     if (started) {
       if (attackEnemy) {
         setPlayerAttack(false);
         setEnemyAttack(true);
-        setTimeout(()=>attackOpponent(playerPokemon, enemyPokemon), 800);
-      } else if(attackPlayer){
+        setTimeout(() => attackOpponent(playerPokemon, enemyPokemon), 800);
+      } else if (attackPlayer) {
         setPlayerAttack(true);
         setEnemyAttack(false);
-        setTimeout(()=>attackOpponent(enemyPokemon, playerPokemon), 800);
+        setTimeout(() => attackOpponent(enemyPokemon, playerPokemon), 800);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [started, attackPlayer, attackEnemy, gameOver]);
 
-  const attackOpponent = (player1, player2)=>{
-    setRounds(rounds + 1);  
-    player2.base.HP = player2.base.HP - Math.ceil(parseInt(player1.base.Attack)/(parseInt(player2.base.Defense * 0.2)));
+  const attackOpponent = (player1, player2) => {
+    setRounds(rounds + 1);
+    player2.base.HP =
+      player2.base.HP -
+      Math.ceil(
+        parseInt(player1.base.Attack) / parseInt(player2.base.Defense * 0.2)
+      );
     setEnemyAttack(!attackEnemy);
     setPlayerAttack(!attackPlayer);
     checkIfGameIsOver(player1, player2);
   };
 
-  const checkIfGameIsOver = (pl1, pl2)=>{
-    if ((pl1.base.HP <= 0) || (pl2.base.HP <= 0)) {
+  const checkIfGameIsOver = (pl1, pl2) => {
+    if (pl1.base.HP <= 0 || pl2.base.HP <= 0) {
       setGameOver(true);
       setStarted(false);
       if (pl1.base.HP < pl2.base.HP) {
         setWinner([pl2]);
         setLoser([pl1]);
-      }else if(pl2.base.HP < pl1.base.HP){
+      } else if (pl2.base.HP < pl1.base.HP) {
         setWinner([pl1]);
         setLoser([pl2]);
-      }else{
+      } else {
         setWinner([pl1, pl2]);
         setLoser([pl1, pl2]);
       }
@@ -69,17 +75,17 @@ export default function Battle({ posts }) {
   };
 
   const handleClickNewGame = () => {
-      setRndIds({
-        randomIdPlayer: Math.floor(Math.random() * posts.length),
-        randomIdEnemy: Math.floor(Math.random() * posts.length)  
-      });
-      setPlayerPokemon(posts.find((pkm) => pkm.id === rndIds.randomIdPlayer));
-      setEnemyPokemon(posts.find((pkm) => pkm.id === rndIds.randomIdEnemy));
-      setStarted(false);
-      setGameOver(false);
-      setEnemyAttack(false);
-      setPlayerAttack(false);
-      checkSpeed();  
+    setRndIds({
+      randomIdPlayer: Math.floor(Math.random() * posts.length),
+      randomIdEnemy: Math.floor(Math.random() * posts.length),
+    });
+    setPlayerPokemon(posts.find((pkm) => pkm.id === rndIds.randomIdPlayer));
+    setEnemyPokemon(posts.find((pkm) => pkm.id === rndIds.randomIdEnemy));
+    setStarted(false);
+    setGameOver(false);
+    setEnemyAttack(false);
+    setPlayerAttack(false);
+    checkSpeed();
   };
 
   const handleClickStartGame = () => {
@@ -94,7 +100,6 @@ export default function Battle({ posts }) {
     checkSpeed();
   };
 
-
   const checkSpeed = () => {
     if (playerPokemon.base.Speed >= enemyPokemon.base.Speed) {
       setEnemyAttack(true);
@@ -108,11 +113,19 @@ export default function Battle({ posts }) {
   return (
     <main className="battle">
       <div className="battle-buttons">
-        <button disabled={!GameOver || started} onClick={handleClickNewGame}>New Game {GameOver}</button>
-        <button disabled={started} onClick={handleClickStartGame}>Start Game {started}</button>
+        <button disabled={!GameOver || started} onClick={handleClickNewGame}>
+          New Game {GameOver}
+        </button>
+        <button disabled={started} onClick={handleClickStartGame}>
+          Start Game {started}
+        </button>
       </div>
       <div className="battle-cards">
-      <PlayerPokemon attack={attackPlayer} pokemon={playerPokemon} name="Player"/>
+        <PlayerPokemon
+          attack={attackPlayer}
+          pokemon={playerPokemon}
+          name="Player"
+        />
         <a
           href="https://www.freepnglogos.com/pics/vs"
           title="Image from freepnglogos.com"
@@ -123,9 +136,15 @@ export default function Battle({ posts }) {
             alt="vs fire icon png logo"
           />
         </a>
-        <PlayerPokemon attack={attackEnemy} pokemon={enemyPokemon} name="Enemy"/>
+        <PlayerPokemon
+          attack={attackEnemy}
+          pokemon={enemyPokemon}
+          name="Enemy"
+        />
       </div>
-      {gameOver?<GameOver winner={ winner } loser={ loser } rounds={ rounds }/>:null}
+      {gameOver ? (
+        <GameOver winner={winner} loser={loser} rounds={rounds} />
+      ) : null}
     </main>
   );
 }
